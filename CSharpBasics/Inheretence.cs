@@ -18,27 +18,14 @@ public abstract class Shape
 }
 
 
-public class Square : Shape, IShapeWithSides
+public class Square : Rectangle
 {
-    public Square(double side)
+    public Square(double side) : base(side, side)
     {
-        Side = side;
-    }
-    public double Side { get; set; }
-    public override double GetArea() => Side * Side;
 
-    public override double GetCircumference() => 4 * Side;
-
-    public override void Display()
-    {
-        Console.WriteLine($"Displaying result for Square with side {Side}:");
-        Console.WriteLine($"Area: {this.GetArea()} square unit:\n\t");
-        Console.WriteLine($"Area: {this.GetCircumference()} square unit:\n\t");
     }
-    public double GetDiagonal() => Math.Sqrt(2 * Side * Side);
 
 }
-
 public class Rectangle : Shape, IShapeWithSides
 {
     public Rectangle(double length, double breadth)
@@ -52,6 +39,12 @@ public class Rectangle : Shape, IShapeWithSides
     public override double GetArea() => Length * Breadth;
 
     public override double GetCircumference() => 2*(Length + Breadth);
+     public override void Display()
+    {
+        Console.WriteLine($"Displaying result for rextangle[{Length}X{Breadth}]:");
+        Console.WriteLine($"Area: {this.GetArea()} square unit:\n\t");
+        Console.WriteLine($"Area: {this.GetCircumference()} square unit:\n\t");
+    }
 
     public double GetDiagonal() => Math.Sqrt(Length * Breadth);
 
@@ -70,32 +63,32 @@ public class Circle : Shape
     public override double GetCircumference() => 2* Math.PI * Radious;
 }
 
-class A 
-{
+// class A 
+// {
 
-}
+// }
 
-class B : A
-{
+// class B : A
+// {
     
-}
+// }
 
-class C: B
-{
+// class C: B
+// {
 
-}
+// }
 
-class D : A. IA,IB
-{
+// class D : A. IA,IB
+// {
     
-}
+// }
 
-interface IA 
-{
+// interface IA
+// {
 
-}
+// }
 
-interface IB 
-{
+// interface IB 
+// {
 
-}
+// }
