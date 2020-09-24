@@ -25,8 +25,8 @@ public class Country
             Country c2 = new Country( "India", "Asia", 2121212.121, 334244353534);
             Country c3 = new Country( "Germany", "Europe", 2121212.121, 334244353534);
             Country c4 = new Country( "USA", "North America", 2121212.121, 334244353534);
-            Country c5 = new Country( "Germany", "Europe", 2121212.121, 334244353534);
-            Country c6 = new Country( "Germany", "Europe", 2121212.121, 334244353534);
+            Country c5 = new Country( "Russia", "Europe", 2121212.121, 334244353534);
+            Country c6 = new Country( "Sweden", "Europe", 2121212.121, 334244353534);
 
             var countries = new List<Country> {c1,c2,c3,c4,c5,c6};
 
