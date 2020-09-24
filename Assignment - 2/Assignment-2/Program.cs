@@ -6,7 +6,8 @@ namespace Assignment_2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Directories directories = new Directories();
+            directories.CreateDirectories();
         }
     }
 }
