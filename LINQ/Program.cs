@@ -19,18 +19,26 @@ namespace LINQ
             string[] names = { "Cosmic", "Ram", "James", "Shyam", "Ronald", "Rajesh"};
             var result3 = names.Where(y => y.Length > 3 && y.StartsWith("R"));
             var result4 = from y in names where y.Length > 3 && y.ToLower().StartsWith("r") select y;
-            foreach(var name in result4)
-            {
-                Console.WriteLine(name);
-            }
+          //  foreach(var name in result4)
+            //{
+              //  Console.WriteLine(name);
+            //}
 
 
             var countries = Country.GetCountries();
-            var asianCountries = from country in countries where country.Continent == "Asia" select country;
+            var asianCountries = from country in countries where country.Continent == "Asia" select country.Name;
+            var EuCountries = from country in countries where country.Continent == "Europe" && country.Population  < 100000 select country.Name;
+      //      foreach(var country in asianCountries)
+        //    {
+          //      Console.WriteLine(country);
+            //}
+            foreach(var country in EuCountries)
+            {
+                Console.WriteLine(country);
+            }
 
 //List countries in Europe which has population less than 100k.
 //List countries in Asia which are not ever invaded.
-
         }
     }
 }
