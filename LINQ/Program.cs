@@ -26,7 +26,7 @@ namespace LINQ
 
 
             var countries = Country.GetCountries();
-            var asianCountries = from country in countries where country.Continent == "Asia" select country.Name;
+            var asianCountries = from country in countries where country.Continent == "Asia" && country.IndependenceDay == default select country.Name;
             var EuCountries = from country in countries where country.Continent == "Europe" && country.Population  < 100000 select country.Name;
             Console.WriteLine("Asian Countries:");
             foreach(var country in asianCountries)
