@@ -40,8 +40,8 @@ public class Country
             Country c16= new Country( "Romania", "Europe", 2121212.121, 334244353534,DateTime.Parse("1947/01/23"));
             Country c17= new Country( "Greece", "Europe", 2121212.121, 334244353534,DateTime.Parse("1947/01/23"));
             Country c18= new Country( "Austria", "Europe", 212.121, 334244353534,DateTime.Parse("1947/01/23"));
-            Country c19= new Country( "Serbia", "Europe", 2121212.121, 7798,dateTime = new DateTime(2016, 7, 15, 3, 15, 0));
-            Country c20= new Country( "Croatia", "Europe", 2121212.121, 3345,dateTime = new DateTime(2016, 7, 15, 3, 15, 0));
+            Country c19= new Country( "Serbia", "Europe", 2121212.121, 7798,DateTime.Parse("1947/01/23"));
+            Country c20= new Country( "Croatia", "Europe", 2121212.121, 3345,DateTime.Parse("1947/01/23"));
 
             var countries = new List<Country> {c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20};
 
