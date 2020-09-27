@@ -24,21 +24,6 @@ namespace LINQ
               //  Console.WriteLine(name);
             //}
 
-
-            var countries = Country.GetCountries();
-            var asianCountries = from country in countries where country.Continent == "Asia" && country.IndependenceDay == default select country.Name;
-            var EuCountries = from country in countries where country.Continent == "Europe" && country.Population  < 100000 select country.Name;
-            Console.WriteLine("Asian Countries:");
-            foreach(var country in asianCountries)
-            {
-                Console.WriteLine(country);
-            }
-            Console.WriteLine("Countries in Europe which has population less than 100k:");
-            foreach(var country in EuCountries)
-            {
-                Console.WriteLine(country);
-            }
-
 //List countries in Europe which has population less than 100k.
 //List countries in Asia which are not ever invaded.
         }
