@@ -4,7 +4,7 @@ public class ComplexType
 {
     public void LearnRestrictions()
     {
-     var countries = Country.GetCountries();
+            var countries = Country.GetCountries();
             var asianCountries = from country in countries where country.Continent == "Asia" && country.IndependenceDay == default select country.Name;
             var EuCountries = from country in countries where country.Continent == "Europe" && country.Population  < 100000 select country.Name;
             Console.WriteLine("Asian Countries:");
@@ -16,6 +16,26 @@ public class ComplexType
             foreach(var country in EuCountries)
             {
                 Console.WriteLine(country);
+            }
+    }
+
+            public void Homework()
+            {
+                var countries = Country.GetCountries();
+            // HW - Is there any African country in your country collection
+            var africanMember = countries.Any (x=> x.Continent=="Africa");
+            if( africanMember)
+                Console.WriteLine("List contains african member");
+            else
+                 Console.WriteLine("List doesn't contain african member");
+        //Hw- Print First 2 largest asian country names.
+        var asianCountries = from country in countries where country.Continent == "Asia" select country;
+        var areaOrderedList = asianCountries.OrderByDescending( x => x.Area);
+        var firstTwoLargestCountry = areaOrderedList.Take(2);
+         Console.WriteLine("Two largest members are:");
+        foreach (var item in firstTwoLargestCountry)
+            {
+                Console.WriteLine(item.Name);
             }
 }
 }

@@ -28,7 +28,7 @@ public class Country
             Country c4 = new Country( "USA", "North America", 2121212.121, 334244353534,DateTime.Parse("1947/01/23"));
             Country c5 = new Country( "Russia", "Europe", 2121212.121, 334244353534,DateTime.Parse("1947/01/23"));
             Country c6 = new Country( "Sweden", "Europe", 2121212.121, 334244353534,DateTime.Parse("1947/01/23"));
-            Country c7 = new Country( "Ukraine", "Europe", 2121212.121, 334244353534,DateTime.Parse("1947/01/23"));
+            Country c7 = new Country( "South Africa", "Africa", 2121212.121, 334244353534,DateTime.Parse("1947/01/23"));
             Country c8 = new Country( "France", "Europe", 2121212.121, 334244353534,DateTime.Parse("1947/01/23"));
             Country c9 = new Country( "Spain", "Europe", 10000, 334244353534,DateTime.Parse("1947/01/23"));
             Country c10 = new Country( "Norway", "Europe", 2121212.121, 334244353534,DateTime.Parse("1947/01/23"));
@@ -42,8 +42,9 @@ public class Country
             Country c18= new Country( "Austria", "Europe", 212.121, 334244353534,DateTime.Parse("1947/01/23"));
             Country c19= new Country( "Serbia", "Europe", 2121212.121, 7798,DateTime.Parse("1947/01/23"));
             Country c20= new Country( "Croatia", "Europe", 2121212.121, 3345,DateTime.Parse("1947/01/23"));
+            Country c21 = new Country( "Bhutan", "Asia", 212154543212.121, 3342445453453534,DateTime.Parse("1947/01/23"));
 
-            var countries = new List<Country> {c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20};
+            var countries = new List<Country> {c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21};
 
             return countries; 
     }

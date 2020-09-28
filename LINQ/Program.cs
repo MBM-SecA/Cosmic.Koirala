@@ -8,6 +8,10 @@ namespace LINQ
     {
         static void Main()
         {
+            ComplexType complexType =new ComplexType();
+            complexType.Homework(); 
+
+
             //LINQ - Language Integrated Query
             //LINQ to objects
             int[] numbers = { 23, 34, 56, 12, 23, 89, 67, 10, 445, 32, 66, 69 };
@@ -38,11 +42,11 @@ namespace LINQ
             var result9 = numbers.All(x => x % 2 == 0);
             var result10 = numbers.Contains(34);
             var result11 = Enumerable.Range(1, 1000);
-            foreach (var order in result7)
-
-            {
-                Console.WriteLine(order);
-            }
+       //     foreach (var order in result7)
+//
+  //          {
+    //            Console.WriteLine(order);
+      //      }
 
             //HW - Is there any african country in your country collection.
             //print 2 largest asian countries name.
