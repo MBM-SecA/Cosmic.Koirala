@@ -1,29 +1,34 @@
 ﻿using System;
+using System.Net.Http;
 using System.Diagnostics;
-using System.Net.Help;
-
+using System.Threading.Tasks;
 namespace Async
 {
     class Program
     {
-        static async Task Main()
+        static  async Task Main()
         {
-             HttpClient client = new HttpClient();
-            Stopwatch stopwatch = stopwatch.StartNew();
-            var a= client.GetStringAsync("www.google.com").Result; 
-            var b = client.GetStringAsync("www.microsoft.com").Result; 
-            var c = client.GetStringAsync("www.yahoo.com").Result; 
-            var d = client.GetStringAsync("www.facebook.com").Result; 
-            Console.WriteLine($"It took {"stopwatch.ElapsedMillisecond"}ms");
-            
-
-
-         stopwatch.Restart();
-            var g= await client.GetStringAsync("www.google.com").Result; 
-            var m = await client.GetStringAsync("www.microsoft.com").Result; 
-            var y = await client.GetStringAsync("www.yahoo.com").Result; 
-            var f = await client.GetStringAsync("www.facebook.com").Result; 
-            Console.WriteLine($"It took {"stopwatch.ElapsedMillisecond"}ms");
+           //Making breakfast
+           //Make tea
+           //- turn on burner(2sec)
+           //- place kettle on burner(2sec)
+           // -pour water(5sec)
+           //- let it boil(5min)
+           // -Grind masals(1min)
+           //put suger and masalas(5s)
+        HttpClient client = new HttpClient();
+             Stopwatch stopwatch = Stopwatch.StartNew();
+        var google = client. GetStringAsync("https://www.google.com/").Result;
+        var micro = client. GetStringAsync("https://www.microsoft.com").Result;
+        var yahoo = client. GetStringAsync("https://www.yahoo.com").Result;
+        var github = client. GetStringAsync("https://www.github.com").Result;
+        Console.WriteLine($"Time taken = {stopwatch.ElapsedMilliseconds}");
+        stopwatch.Restart();
+        var g = await client. GetStringAsync("https://www.google.com/");
+        var m = await client. GetStringAsync("https://www.microsoft.com");
+        var y = await client. GetStringAsync("https://www.yahoo.com");
+        var gi = await client. GetStringAsync("https://www.github.com");
+        Console.WriteLine($"Time taken = {stopwatch.ElapsedMilliseconds}");
         }
     }
 }
