@@ -1,17 +1,35 @@
-using System.Collections.Generic;
+using System.Linq;
+using System;
 using Microsoft.AspNetCore.Mvc;
-
-public class EmployeeController : Controller
+ 
+public class EmployeeController: Controller
 {
+    
     public ActionResult Index()
     {
-        Person empl1 = new Person() {FirstName = "Cosmic", Surname = "Koirala", Address="Kapan",Salary = 300.0 };
-        Person empl2 = new Person() {FirstName = "Cosmic", Surname = "Koirala", Address="Kapan",Salary = 300.0 };
-        Person empl3 = new Person() {FirstName = "Cosmic", Surname = "Koirala", Address="Kapan",Salary = 300.0 };
-        Person empl4 = new Person() {FirstName = "Cosmic", Surname = "Koirala", Address="Kapan",Salary = 300.0 };
-        Person empl5 = new Person() {FirstName = "Cosmic", Surname = "Koirala", Address="Kapan",Salary = 300.0 };
-        List<Person> employees = new List<Person>() {empl1, empl2, empl3, empl4, empl5};
+        var employees = Person.GetData();
+        
         return View(employees);
     }
-}
+ public ActionResult Detail([FromQuery]int id)
+    {  
+       var  employees = Person.GetData();
+        var employee= employees.FirstOrDefault(x=>x.Id==id);
+        return View(employee);        
+    }
 
+    
+    public ActionResult Add()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public ActionResult<string> Add([FromForm]Person person)
+    {
+        return "Record Saved";
+    }
+
+
+ 
+}
