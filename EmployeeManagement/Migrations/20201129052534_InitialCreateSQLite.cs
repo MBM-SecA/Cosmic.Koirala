@@ -2,7 +2,7 @@
 
 namespace EmployeeManagement.Migrations
 {
-    public partial class Initial_Create : Migration
+    public partial class InitialCreateSQLite : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,11 +11,11 @@ namespace EmployeeManagement.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     FirstName = table.Column<string>(nullable: false),
                     LastName = table.Column<string>(nullable: false),
                     Address = table.Column<string>(nullable: true),
-                    Gender = table.Column<string>(nullable: false),
+                    Gender = table.Column<char>(nullable: false),
                     Salary = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
