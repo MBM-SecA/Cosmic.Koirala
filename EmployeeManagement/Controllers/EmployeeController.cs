@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
  
 public class EmployeeController: Controller
 {
-      private readonly EMSContext db;
+      private EMSContext db;
         public EmployeeController(EMSContext _db)
         {
             db = _db;
@@ -17,12 +17,11 @@ public class EmployeeController: Controller
         
         return View(employees);
     }
- //public ActionResult Detail([FromQuery]int id)
-   // {  
-     //  var  employees = Person.GetData();
-      //  var employee= employees.FirstOrDefault(x=>x.Id==id);
-     //   return View(employee);        
-  //  }
+ public ActionResult Detail([FromQuery]int id)
+    {  
+       var  employee = db.People.Find(id);
+        return View(employee);        
+   }
 
     
     public ActionResult Add()
@@ -35,9 +34,38 @@ public class EmployeeController: Controller
     {
         db.People.Add(person);
         db.SaveChanges();
-        return "Record Saved";
+        return RedirectToAction(nameof(Index));
+    }
+    public ActionResult Edit(int id)
+    {
+        var employee = db.People.Find(id);
+        return View(employee);
     }
 
+    [HttpPost]
+    public ActionResult Edit(Person person)
+    {
+        db.People.Attach(person);
+        db.People.Update(person);
+        db.SaveChanges();
+        return RedirectToAction(nameof(Index));
+
+    }
+  public ActionResult Delete(int id)
+    {
+        var employee = db.People.Find(id);
+        return View(employee);
+    }
+
+    [HttpPost]
+    public ActionResult Delete(Person person)
+    {
+        db.People.Remove(person);
+        db.People.Remove(person);
+        db.SaveChanges();
+        return RedirectToAction(nameof(Index));
+
+    }
 
  
 }
