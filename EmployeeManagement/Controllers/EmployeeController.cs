@@ -51,21 +51,26 @@ public class EmployeeController: Controller
         return RedirectToAction(nameof(Index));
 
     }
-  public ActionResult Delete(int id)
-    {
-        var employee = db.People.Find(id);
-        return View(employee);
+ [HttpGet]
+ public ActionResult Delete([FromQuery]int id)
+    {  
+       var  employee = db.People.Find(id);
+       return View(employee);
+        
     }
-
     [HttpPost]
-    public ActionResult Delete(Person person)
-    {
-        db.People.Remove(person);
-        db.People.Remove(person);
+public ActionResult Delete([FromForm]Person person)
+    {  
+       db.People.Attach(person);
+       db.People.Remove(person);
         db.SaveChanges();
         return RedirectToAction(nameof(Index));
-
+ 
+    
+        
     }
+
+
 
  
 }

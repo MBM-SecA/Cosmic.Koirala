@@ -11,5 +11,7 @@
 <li class="list-group-item">Saalary: @Model.Salary</li>
 </ul>
  <input type="hidden" asp-for="Id">
-
-<button type="submit" class="btn btn-warning">Delete Anyhow </button>
+<form asp-controller="Employee" asp-action="Delete" method="POST">
+ <input type="hidden" asp-for="Id"/>
+  <button class="btn btn-danger">Delete Anyway</button>  
+</form>
