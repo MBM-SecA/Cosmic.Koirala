@@ -1,54 +1,59 @@
+
 using System.Linq;
-using System;
 using Microsoft.AspNetCore.Mvc;
- 
+
 public class DepartmentController: Controller
 {
-      private EMSContext db;
-        public DepartmentController(EMSContext _db)
-        {
-            db = _db;
-        }
+    private readonly EMSContext db;
+
+    public DepartmentController(EMSContext _db)
+   {
+        db = _db;
+    }
+     
     public ActionResult Index()
     {
-      
-        //var db = new EMSContext();
-        var departments = db.Departments.ToList();
         
-        return View(departments);
+        var Departments = db.Departments.ToList();
+        return View(Departments);
+    }
+    public ActionResult Detail([FromQuery]int id)
+    {  
+       var  Department = db.Departments.Find(id);
+       return View(Department);
+        
     }
 
-       public ActionResult Add()
+[HttpGet]
+    public ActionResult Add()
     {
         return View();
     }
-
-        [HttpPost]
-    public ActionResult<string> Add([FromForm]Department department)
+[HttpPost]
+    public ActionResult Add([FromForm]Department Department)
     {
-        db.Departments.Add(department);
+        db.Departments.Add(Department);
         db.SaveChanges();
         return RedirectToAction(nameof(Index));
     }
-
-
-        public ActionResult Edit(int id)
-    {
-        var department = db.Departments.Find(id);
-        return View(department);
+    public ActionResult Edit([FromQuery]int id)
+    {  
+       var  Department = db.Departments.Find(id);
+       return View(Department);
+        
     }
-
     [HttpPost]
-    public ActionResult Edit(Department department)
-    {
-        db.Departments.Attach(department);
-        db.Departments.Update(department);
+public ActionResult Edit([FromForm]Department department)
+    {  
+       db.Departments.Attach(department);
+       db.Departments.Update(department);
         db.SaveChanges();
         return RedirectToAction(nameof(Index));
 
+    
+        
     }
-
-     [HttpGet]
+[HttpGet]
  public ActionResult Delete([FromQuery]int id)
     {  
        var  department = db.Departments.Find(id);
@@ -62,8 +67,10 @@ public ActionResult Delete([FromForm]Department department)
        db.Departments.Remove(department);
         db.SaveChanges();
         return RedirectToAction(nameof(Index));
- 
+
     
         
     }
+
 }
+

@@ -1,20 +1,16 @@
 @model Department
-
 @{
-    ViewData["TitlePhrase"]="Add Department";
+    ViewData["Titlephrase"]=@Model.Name;
 }
-
-<<h2>Are you sure to delete the following?</h2>
-
-<hr><hr>
+<h1 style="color: red;">Are you sure to remove following data !!! <a class="btn btn-outline-primary" href="/department/index" role="button">Go Back</a></h1>
 
 <ul class="list-group">
-<li class="list-group-item">Name: @Model.Name</li>
-<li class="list-group-item">Code: @Model.Code</li>
-<li class="list-group-item">Description: @Model.Description</li>
-<li class="list-group-item">StartDate: @Model.StartDate</li>
+<li class="list-group-item">First Name: @Model.Name</li>
+<li class="list-group-item">Last Name: @Model.Code</li>
+<li class="list-group-item">Address: @Model.Description</li>
+<li class="list-group-item">Gender: @Model.StartDate</li>
+
 </ul>
- <input type="hidden" asp-for="Id">
 <form asp-controller="Department" asp-action="Delete" method="POST">
  <input type="hidden" asp-for="Id"/>
   <button class="btn btn-danger">Delete Anyway</button>  
