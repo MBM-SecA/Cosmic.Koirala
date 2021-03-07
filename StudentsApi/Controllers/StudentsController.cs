@@ -33,7 +33,7 @@ public ActionResult GetAllStudentsById(string name)
 
     [HttpPost]
     [Route("add")]
-public ActionResult CreateStudent(Students student)
+public ActionResult CreateStudent(Student student)
 {
     
     if(student == null)
